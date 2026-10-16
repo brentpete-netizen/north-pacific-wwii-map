@@ -27,7 +27,7 @@ import SupplyRoutes from "./SupplyRoutes.tsx";
 import WeatherLayer from "./WeatherLayer.tsx";
 
 const MAX_BOUNDS: [[number, number], [number, number]] = [
-  [10, -245],
+  [10, -280],
   [85, -108],
 ];
 
@@ -219,9 +219,9 @@ export default function MapView({
 
   const points = useMemo(
     () =>
-      groups.map(
-        (group) => [group.location.lat, toMapLng(group.location.lng)] as [number, number],
-      ),
+      groups
+        .filter((group) => !group.location.omitFromFrame)
+        .map((group) => [group.location.lat, toMapLng(group.location.lng)] as [number, number]),
     [groups],
   );
 

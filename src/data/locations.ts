@@ -1,4 +1,5 @@
 import type { ControlSpan, DateRange, Location } from "../types.ts";
+import { rearAreas } from "./rearAreas.ts";
 
 const campaign: DateRange = { start: "1942-06-03", end: "1943-08-31" };
 
@@ -10,7 +11,7 @@ function other(start: string, end = campaign.end): ControlSpan[] {
   return [{ control: "other", start, end }];
 }
 
-export const locations: Location[] = [
+const campaignLocations: Location[] = [
   {
     id: "dutch-harbor",
     name: "Dutch Harbor / Fort Mears",
@@ -229,3 +230,5 @@ export const locations: Location[] = [
     active: { start: "1943-03-26", end: "1943-03-26" },
   },
 ];
+
+export const locations: Location[] = [...campaignLocations, ...rearAreas];

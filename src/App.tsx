@@ -7,6 +7,7 @@ import { airNotes, airRoutes } from "./data/airWar.ts";
 import { events } from "./data/events.ts";
 import { forces } from "./data/forces.ts";
 import { locations } from "./data/locations.ts";
+import { alsibStopIds } from "./data/rearAreas.ts";
 import { supplyRoutes } from "./data/supplyRoutes.ts";
 import { tracks } from "./data/tracks.ts";
 import { weatherNotes } from "./data/weather.ts";
@@ -43,7 +44,13 @@ export default function App() {
   const [motionOn, setMotionOn] = useState(false);
 
   const activeEvents = useMemo(() => eventsInPeriod(events, period), [period]);
-  const visibleLocations = useMemo(() => locationsInPeriod(locations, period), [period]);
+  const visibleLocations = useMemo(
+    () =>
+      locationsInPeriod(locations, period).filter(
+        (place) => !alsibStopIds.has(place.id) || alsibOn,
+      ),
+    [period, alsibOn],
+  );
   const selectedEvent = activeEvents.find((event) => event.id === eventId) ?? null;
   const drawnTracks = useMemo(
     () => tracksInWindow(tracks, trackWindow, hiddenTrackIds),

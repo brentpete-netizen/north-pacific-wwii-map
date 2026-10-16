@@ -31,6 +31,7 @@ export interface Location {
   side: Side;
   active: DateRange;
   control?: ControlSpan[];
+  omitFromFrame?: boolean;
 }
 
 export interface Fact {
