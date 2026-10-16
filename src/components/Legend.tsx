@@ -1,3 +1,10 @@
+import { symbolMarkup, type SymbolId } from "../icons/symbols.ts";
+
+function Mark({ id }: { id: SymbolId }) {
+  const symbol = symbolMarkup(id, "#1c1915", { scale: 0.64 });
+  return <span className="swatch-symbol" dangerouslySetInnerHTML={{ __html: symbol.html }} />;
+}
+
 export default function Legend() {
   return (
     <div className="legend">
@@ -34,15 +41,15 @@ export default function Legend() {
             Both sides
           </li>
           <li>
-            <span className="swatch swatch-shape swatch-circle" />
+            <Mark id="battle" />
             Combat
           </li>
           <li>
-            <span className="swatch swatch-shape swatch-square" />
+            <Mark id="airfield" />
             Base
           </li>
           <li>
-            <span className="swatch swatch-shape swatch-diamond" />
+            <Mark id="intelligence" />
             Intelligence
           </li>
         </ul>

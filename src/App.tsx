@@ -40,6 +40,7 @@ export default function App() {
   const [highwayOn, setHighwayOn] = useState(false);
   const [alsibOn, setAlsibOn] = useState(false);
   const [supplyRouteId, setSupplyRouteId] = useState<SupplyRouteId | null>(null);
+  const [motionOn, setMotionOn] = useState(false);
 
   const activeEvents = useMemo(() => eventsInPeriod(events, period), [period]);
   const visibleLocations = useMemo(() => locationsInPeriod(locations, period), [period]);
@@ -133,6 +134,15 @@ export default function App() {
     setLocationId(null);
     setEventId(null);
     setWeatherNoteId(null);
+  }
+
+  function showAllLayers() {
+    setWeatherOn(true);
+    setAirOn(true);
+    setForcesOn(true);
+    setLeadershipOn(true);
+    setHighwayOn(true);
+    setAlsibOn(true);
   }
 
   function selectSupply(id: SupplyRouteId) {
@@ -239,6 +249,9 @@ export default function App() {
           onHighway={setHighwayOn}
           onAlsib={setAlsibOn}
           onSupplyNote={selectSupply}
+          onAllLayers={showAllLayers}
+          motionOn={motionOn}
+          onMotion={() => setMotionOn((on) => !on)}
         />
         <SidePanel
           period={period}

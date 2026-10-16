@@ -1,4 +1,4 @@
-import { useEffect, useState, type ReactNode } from "react";
+import { Fragment, useEffect, useState, type ReactNode } from "react";
 import { Polyline, useMap } from "react-leaflet";
 import { toMapLng } from "../lib/longitude.ts";
 import type { SupplyRoute, SupplyRouteId } from "../types.ts";
@@ -25,23 +25,52 @@ function SupplyPane({ children }: { children: ReactNode }) {
   return children;
 }
 
-export default function SupplyRoutes({ routes }: { routes: SupplyRoute[] }) {
+export default function SupplyRoutes({
+  routes,
+  onSelect,
+}: {
+  routes: SupplyRoute[];
+  onSelect: (id: SupplyRouteId) => void;
+}) {
   return (
     <SupplyPane>
-      {routes.map((route) => (
-        <Polyline
-          key={route.id}
-          positions={route.coordinates.map(([lat, lng]) => [lat, toMapLng(lng)] as [number, number])}
-          pane="supply"
-          interactive={false}
-          pathOptions={{
-            color: STYLE[route.id].color,
-            weight: 2,
-            opacity: 0.75,
-            dashArray: STYLE[route.id].dashArray,
-          }}
-        />
-      ))}
+      {routes.map((route) => {
+        const positions = route.coordinates.map(([lat, lng]) => [lat, toMapLng(lng)] as [number, number]);
+        return (
+          <Fragment key={route.id}>
+            <Polyline
+              positions={positions}
+              pane="supply"
+              interactive={false}
+              pathOptions={{
+                color: STYLE[route.id].color,
+                weight: 2,
+                opacity: 0.75,
+                dashArray: STYLE[route.id].dashArray,
+              }}
+            />
+            <Polyline
+              positions={positions}
+              pane="supply"
+              interactive
+              eventHandlers={{
+                add: (event) => {
+                  const element = event.target.getElement();
+                  if (!element) return;
+                  element.style.pointerEvents = "stroke";
+                  element.style.cursor = "pointer";
+                },
+                click: () => onSelect(route.id),
+              }}
+              pathOptions={{
+                color: STYLE[route.id].color,
+                weight: 14,
+                opacity: 0,
+              }}
+            />
+          </Fragment>
+        );
+      })}
     </SupplyPane>
   );
 }

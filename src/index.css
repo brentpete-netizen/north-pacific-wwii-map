@@ -143,6 +143,22 @@ button:focus-visible {
   color: #f3efe6;
 }
 
+.play-routes {
+  margin-top: 0.35rem;
+  background: transparent;
+  color: #1c1915;
+  border: 1px solid #1c1915;
+  border-radius: 999px;
+  padding: 0.16rem 0.5rem;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.play-routes[aria-pressed="true"] {
+  background: #1c1915;
+  color: #f3efe6;
+}
+
 .movement-group {
   margin: 0.45rem 0 0;
   padding: 0;
@@ -275,72 +291,24 @@ button:focus-visible {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 22px;
-  height: 22px;
+  width: 100%;
+  height: 100%;
+}
+
+.force-hit svg {
+  display: block;
+  overflow: visible;
 }
 
 .force-hit-selected {
   outline: 2px solid #1c1915;
+  outline-offset: 2px;
+}
+
+.symbol-selected {
+  display: flex;
+  outline: 2px solid #1c1915;
   outline-offset: 1px;
-}
-
-.force-mark {
-  display: block;
-  box-sizing: border-box;
-}
-
-.force-carrier {
-  width: 20px;
-  height: 8px;
-  border-radius: 1px;
-}
-
-.force-ship {
-  width: 11px;
-  height: 11px;
-  transform: rotate(45deg);
-}
-
-.force-aircraft {
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 13px solid transparent;
-}
-
-.force-commander {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: transparent;
-  border: 2px solid transparent;
-}
-
-.force-japan.force-carrier,
-.force-japan.force-ship {
-  background: #7a332c;
-}
-
-.force-us.force-carrier,
-.force-us.force-ship {
-  background: #1e3a5f;
-}
-
-.force-japan.force-aircraft {
-  border-bottom-color: #7a332c;
-}
-
-.force-us.force-aircraft {
-  border-bottom-color: #1e3a5f;
-}
-
-.force-japan.force-commander {
-  border-color: #7a332c;
-}
-
-.force-us.force-commander {
-  border-color: #1e3a5f;
 }
 
 .force-side {
@@ -529,23 +497,17 @@ button:focus-visible {
   box-shadow: 0 0 0 1px #f3efe6, 0 0 0 2.5px #1c1915;
 }
 
-.swatch-shape {
-  background: #1c1915;
-  border-color: #f3efe6;
-  box-shadow: 0 0 0 1px #1c1915;
+.swatch-symbol {
+  display: flex;
+  width: 18px;
+  height: 18px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
 }
 
-.swatch-circle {
-  border-radius: 50%;
-}
-
-.swatch-square {
-  border-radius: 1px;
-}
-
-.swatch-diamond {
-  border-radius: 1px;
-  transform: rotate(45deg);
+.swatch-symbol svg {
+  display: block;
 }
 
 .swatch-halo {
@@ -577,16 +539,16 @@ button:focus-visible {
 
 .pin-wrap {
   position: relative;
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
 }
 
 .halo {
   position: absolute;
   left: 0;
   top: 0;
-  width: 44px;
-  height: 44px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   pointer-events: none;
 }
@@ -611,53 +573,23 @@ button:focus-visible {
 
 .pin {
   position: absolute;
-  left: 8px;
-  top: 8px;
+  left: 12px;
+  top: 12px;
   width: 28px;
   height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.pin-shape {
-  position: absolute;
-  left: 6px;
-  top: 6px;
-  width: 16px;
-  height: 16px;
-  box-sizing: border-box;
-  border: 2px solid #f3efe6;
+.pin svg {
+  display: block;
+  overflow: visible;
 }
 
-.pin-japan .pin-shape {
-  background: #7a332c;
-  box-shadow: 0 0 0 1px #7a332c;
-}
-
-.pin-us .pin-shape {
-  background: #1e3a5f;
-  box-shadow: 0 0 0 1px #1e3a5f;
-}
-
-.pin-both .pin-shape {
-  background: #1c1915;
-  box-shadow: 0 0 0 2px #f3efe6, 0 0 0 4px #1c1915;
-}
-
-.pin-battle .pin-shape {
-  border-radius: 50%;
-}
-
-.pin-base .pin-shape {
-  border-radius: 1px;
-}
-
-.pin-intelligence .pin-shape {
-  border-radius: 1px;
-  transform: rotate(45deg);
-}
-
-.pin-selected .pin-shape {
+.pin-selected {
   outline: 2px solid #1c1915;
-  outline-offset: 4px;
+  outline-offset: 2px;
 }
 
 .pin-label {

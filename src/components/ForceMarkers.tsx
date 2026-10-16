@@ -1,21 +1,23 @@
 import { divIcon, type DivIcon } from "leaflet";
 import { memo, useMemo } from "react";
 import { Marker, Tooltip } from "react-leaflet";
+import { SIDE_FILL, symbolForForce, symbolMarkup } from "../icons/symbols.ts";
 import { toMapLng } from "../lib/longitude.ts";
-import type { ForceCategory, ForceUnit } from "../types.ts";
+import type { ForceUnit } from "../types.ts";
 
 export interface PlacedForce extends ForceUnit {
   lat: number;
   lng: number;
 }
 
-function buildIcon(category: ForceCategory, side: ForceUnit["side"], selected: boolean): DivIcon {
+function buildIcon(unit: PlacedForce, selected: boolean): DivIcon {
+  const symbol = symbolMarkup(symbolForForce(unit), SIDE_FILL[unit.side]);
   const selectedClass = selected ? " force-hit-selected" : "";
   return divIcon({
     className: "pin-icon",
-    iconSize: [22, 22],
-    iconAnchor: [11, 11],
-    html: `<span class="force-hit${selectedClass}"><span class="force-mark force-${category} force-${side}"></span></span>`,
+    iconSize: [symbol.width, symbol.height],
+    iconAnchor: [symbol.width / 2, symbol.height / 2],
+    html: `<span class="force-hit${selectedClass}">${symbol.html}</span>`,
   });
 }
 
@@ -28,10 +30,7 @@ function ForceMarker({
   selected: boolean;
   onSelect: (id: string) => void;
 }) {
-  const icon = useMemo(
-    () => buildIcon(unit.category, unit.side, selected),
-    [unit.category, unit.side, selected],
-  );
+  const icon = useMemo(() => buildIcon(unit, selected), [unit, selected]);
   const point = useMemo(
     () => [unit.lat, toMapLng(unit.lng)] as [number, number],
     [unit.lat, unit.lng],

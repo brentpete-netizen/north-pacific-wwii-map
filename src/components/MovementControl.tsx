@@ -28,6 +28,9 @@ interface MovementControlProps {
   onHighway: (on: boolean) => void;
   onAlsib: (on: boolean) => void;
   onSupplyNote: (id: SupplyRouteId) => void;
+  onAllLayers: () => void;
+  motionOn: boolean;
+  onMotion: () => void;
 }
 
 function TrackGroup({
@@ -82,11 +85,17 @@ export default function MovementControl({
   onHighway,
   onAlsib,
   onSupplyNote,
+  onAllLayers,
+  motionOn,
+  onMotion,
 }: MovementControlProps) {
   return (
     <div className="movements">
       <fieldset className="movement-group layer-toggles">
         <legend>Layers</legend>
+        <button type="button" className="reference-open" onClick={onAllLayers}>
+          All layers
+        </button>
         <label>
           <input type="checkbox" checked={weatherOn} onChange={(event) => onWeather(event.target.checked)} />
           Weather
@@ -139,6 +148,15 @@ export default function MovementControl({
           </button>
         ))}
       </div>
+      <button
+        type="button"
+        className="play-routes"
+        aria-pressed={motionOn}
+        title="Loop the Japanese approaches to Dutch Harbor and Midway"
+        onClick={onMotion}
+      >
+        Play routes
+      </button>
       {listed.length > 0 && (
         <>
           <TrackGroup
