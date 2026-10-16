@@ -3,6 +3,7 @@ import { locations } from "../data/locations.ts";
 import { periods } from "../data/periods.ts";
 import { controlForPeriod, controlLabel } from "../lib/control.ts";
 import { formatRange } from "../lib/dates.ts";
+import { unitImageSrc } from "../lib/unitImage.ts";
 import type {
   CampaignEvent,
   ForceCategory,
@@ -96,6 +97,17 @@ function ForceReference({
                             {category.singular} · {sideLabel(unit.side)}
                           </span>
                         </button>
+                        {unit.image ? (
+                          <img
+                            className="unit-thumb"
+                            src={unitImageSrc(unit.image)}
+                            alt={unit.name}
+                            width={168}
+                            height={126}
+                            decoding="async"
+                            loading="lazy"
+                          />
+                        ) : null}
                         <p className="force-role">{unit.role}</p>
                         <p className="panel-summary">{unit.summary}</p>
                       </div>

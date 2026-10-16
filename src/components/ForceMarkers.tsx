@@ -3,6 +3,7 @@ import { memo, useMemo } from "react";
 import { Marker, Tooltip } from "react-leaflet";
 import { SIDE_FILL, symbolForForce, symbolMarkup } from "../icons/symbols.ts";
 import { toMapLng } from "../lib/longitude.ts";
+import { unitImageSrc } from "../lib/unitImage.ts";
 import type { ForceUnit } from "../types.ts";
 
 export interface PlacedForce extends ForceUnit {
@@ -47,6 +48,17 @@ function ForceMarker({
       <Tooltip className="track-tip" direction="top" offset={[0, -8]}>
         <strong>{unit.name}</strong>
         <span>{unit.role}</span>
+        {unit.image ? (
+          <img
+            className="unit-thumb unit-thumb-tip"
+            src={unitImageSrc(unit.image)}
+            alt=""
+            width={96}
+            height={72}
+            decoding="async"
+            loading="lazy"
+          />
+        ) : null}
       </Tooltip>
     </Marker>
   );

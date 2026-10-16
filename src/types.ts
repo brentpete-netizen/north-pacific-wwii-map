@@ -131,6 +131,8 @@ export interface ForceUnit {
   positions: ForcePosition[];
   role: string;
   summary: string;
+  /** Path under public/, such as images/units/ryujo.jpg. */
+  image?: string;
 }
 
 export type SupplyRouteId = "alaska-highway" | "alsib";

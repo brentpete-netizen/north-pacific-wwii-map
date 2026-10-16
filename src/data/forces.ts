@@ -13,6 +13,7 @@ export const forces: ForceUnit[] = [
     periodIds: june,
     positions: [{ periodIds: june, lat: 51.2, lng: -168.8 }],
     role: "Light carrier, Second Mobile Force",
+    image: "images/units/ryujo.jpg",
     summary:
       "Ryūjō flew Kakuta’s strike aircraft against Dutch Harbor on 3 and 4 June 1942. Fog turned much of the first strike back. The ship stayed south of the islands, hidden in the same weather, and did not close the harbor.",
   },
@@ -24,6 +25,7 @@ export const forces: ForceUnit[] = [
     periodIds: june,
     positions: [{ periodIds: june, lat: 51.0, lng: -170.6 }],
     role: "Carrier, Second Mobile Force",
+    image: "images/units/junyo.jpg",
     summary:
       "Jun’yō sailed with Ryūjō in Kakuta’s carrier pair. Her aircraft joined the Dutch Harbor strikes on 3 and 4 June 1942. The two ships kept to the fog south of the chain and left after the second day’s attack.",
   },
@@ -35,6 +37,7 @@ export const forces: ForceUnit[] = [
     periodIds: june,
     positions: [{ periodIds: june, lat: 33.2, lng: -175.5 }],
     role: "Carrier, Task Force 16",
+    image: "images/units/enterprise.jpg",
     summary:
       "Enterprise left Pearl Harbor on 28 May 1942 with Hornet under Spruance. The two carriers met Yorktown near Point Luck, north of Midway, before the 4 June battle. They were the American carrier reply to Nagumo, not a Dutch Harbor force.",
   },
@@ -46,6 +49,7 @@ export const forces: ForceUnit[] = [
     periodIds: june,
     positions: [{ periodIds: june, lat: 30.8, lng: -176.2 }],
     role: "Carrier, Task Force 16",
+    image: "images/units/hornet.jpg",
     summary:
       "Hornet sailed from Pearl Harbor with Enterprise on 28 May 1942. Her air group flew in the 4 June strike on Nagumo’s carriers from the rendezvous north of Midway. She had no role in the Aleutian raids.",
   },
@@ -57,6 +61,7 @@ export const forces: ForceUnit[] = [
     periodIds: june,
     positions: [{ periodIds: june, lat: 33.0, lng: -171.2 }],
     role: "Carrier, Task Force 17",
+    image: "images/units/yorktown.jpg",
     summary:
       "Yorktown left Pearl Harbor on 30 May 1942 under Fletcher and joined Task Force 16 near Point Luck. Her aircraft struck Nagumo’s force on 4 June. Damage from that battle sank her two days later, far from the Aleutians.",
   },
@@ -71,6 +76,7 @@ export const forces: ForceUnit[] = [
       { periodIds: ["early1943"], lat: 55.1, lng: 165.5 },
     ],
     role: "Heavy cruiser, Fifth Fleet flagship",
+    image: "images/units/nachi.jpg",
     summary:
       "Nachi was Hosogaya’s flagship for the northern operation. In June 1942 she covered the move toward the western Aleutians. On 26 March 1943 she led the Komandorski fight against an American cruiser force and was the Japanese ship most heavily hit.",
   },
@@ -93,6 +99,7 @@ export const forces: ForceUnit[] = [
     periodIds: ["early1943"],
     positions: [{ periodIds: ["early1943"], lat: 51.2, lng: 171.2 }],
     role: "Heavy cruiser, Komandorski",
+    image: "images/units/salt-lake-city.jpg",
     summary:
       "Salt Lake City was the largest American ship in the 26 March 1943 fight south of the Komandorski Islands. She took hits that slowed her and nearly silenced her guns. The cruiser action still turned Hosogaya’s reinforcement convoy back from Attu.",
   },
@@ -108,6 +115,18 @@ export const forces: ForceUnit[] = [
       "Richmond fought beside Salt Lake City on 26 March 1943. The smaller cruiser and the destroyers kept firing after Salt Lake City was damaged. Together they blocked the Japanese convoy that was trying to reach the Attu garrison.",
   },
   {
+    id: "i-168",
+    name: "I-168",
+    side: "japan",
+    category: "ship",
+    periodIds: june,
+    positions: [{ periodIds: june, lat: 32.0, lng: -169.8 }],
+    role: "Submarine, Yorktown sinking",
+    image: "images/units/i-168.jpg",
+    summary:
+      "I-168 found the damaged Yorktown on 7 June 1942 and sank her with torpedoes. The destroyer Hammann was lost with the carrier. The submarine was part of the Midway operation, not the landings in the Aleutians.",
+  },
+  {
     id: "a6m-zero",
     name: "A6M Zero",
     side: "japan",
@@ -115,6 +134,7 @@ export const forces: ForceUnit[] = [
     periodIds: june,
     positions: [{ periodIds: june, lat: 50.6, lng: -167.6 }],
     role: "Carrier fighter, Dutch Harbor strike",
+    image: "images/units/a6m-zero.jpg",
     summary:
       "A6M Zeros flew escort for Kakuta’s 3 and 4 June 1942 strikes on Dutch Harbor. Most of the first wave turned back in fog. A Zero from Ryūjō later crash-landed at Akutan, and the recovered fighter became an American test aircraft.",
   },
@@ -126,6 +146,7 @@ export const forces: ForceUnit[] = [
     periodIds: june,
     positions: [{ periodIds: june, lat: 50.4, lng: -169.4 }],
     role: "Carrier dive bomber, Dutch Harbor strike",
+    image: "images/units/d3a-val.jpg",
     summary:
       "D3A Vals were the dive bombers in Kakuta’s strikes on Dutch Harbor. On 4 June, when the weather opened, they hit the harbor, radio station, and fuel tanks. They flew from Ryūjō and Jun’yō and returned to the carriers in the fog.",
   },
@@ -137,6 +158,7 @@ export const forces: ForceUnit[] = [
     periodIds: june,
     positions: [{ periodIds: june, lat: 50.8, lng: -171.4 }],
     role: "Carrier attack plane, Dutch Harbor strike",
+    image: "images/units/b5n-kate.jpg",
     summary:
       "B5N Kates flew as level bombers and torpedo aircraft from Ryūjō and Jun’yō. On 3 and 4 June 1942 they were part of the Dutch Harbor strike, alongside the Vals. Fog cut the first attack short before many of them reached the harbor.",
   },
@@ -148,6 +170,7 @@ export const forces: ForceUnit[] = [
     periodIds: campaign,
     positions: [{ periodIds: campaign, lat: 54.2, lng: 179.5 }],
     role: "Floatplane fighter, Kiska harbor",
+    image: "images/units/a6m2n-rufe.jpg",
     summary:
       "A6M2-N Rufes flew from the seaplane base in Kiska harbor during the occupation. They patrolled the western Aleutians and met American bombers once Adak, then Amchitka, could reach the island. The floatplanes left with the garrison at the end of July 1943.",
   },
@@ -170,6 +193,7 @@ export const forces: ForceUnit[] = [
     periodIds: june,
     positions: [{ periodIds: june, lat: 51.5, lng: -166.6 }],
     role: "Army fighter, Fort Glenn",
+    image: "images/units/p-40.jpg",
     summary:
       "P-40s of the Eleventh Air Force were based at the secret field on Umnak, Fort Glenn. On 4 June 1942 they met Kakuta’s second strike as it left Dutch Harbor. The Japanese carriers had not known the fighters were there.",
   },
@@ -181,6 +205,7 @@ export const forces: ForceUnit[] = [
     periodIds: june,
     positions: [{ periodIds: june, lat: 55.2, lng: -169.8 }],
     role: "Patrol bomber, Dutch Harbor and the search",
+    image: "images/units/pby.jpg",
     summary:
       "PBY Catalinas flew the long patrols from Dutch Harbor and from Midway. In the first days of June 1942 they searched for both Kakuta’s carriers and Nagumo’s force. A Midway Catalina also sighted the Japanese occupation transports on 3 June.",
   },
@@ -192,6 +217,7 @@ export const forces: ForceUnit[] = [
     periodIds: june,
     positions: [{ periodIds: june, lat: 57.0, lng: -160.5 }],
     role: "Army bomber, Cold Bay",
+    image: "images/units/b-17.jpg",
     summary:
       "B-17s of the Eleventh Air Force operated from Cold Bay and Umnak during the June 1942 raids. They searched for Kakuta’s ships and bombed when weather allowed. Fog and range kept most of those attacks from hitting the carriers.",
   },
@@ -203,6 +229,7 @@ export const forces: ForceUnit[] = [
     periodIds: fromAdak,
     positions: [{ periodIds: fromAdak, lat: 53.7, lng: -174.5 }],
     role: "Army bomber, Adak",
+    image: "images/units/b-24.jpg",
     summary:
       "B-24s of the Eleventh Air Force flew against Kiska from Adak beginning in September 1942. Amchitka later shortened the trip. Williwaws and fog cancelled as many missions as Japanese fire did. The bombers kept at the island until the garrison left.",
   },

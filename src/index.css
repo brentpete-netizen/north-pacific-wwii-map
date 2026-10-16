@@ -233,6 +233,22 @@ button:focus-visible {
   white-space: normal;
 }
 
+.unit-thumb {
+  display: block;
+  width: 168px;
+  height: 126px;
+  object-fit: cover;
+  margin-top: 0.45rem;
+  background: #f3efe6;
+  border: 1px solid #e0d8cc;
+}
+
+.unit-thumb-tip {
+  width: 96px;
+  height: 72px;
+  margin-top: 0.35rem;
+}
+
 .weather-mark {
   display: block;
   width: 18px;
